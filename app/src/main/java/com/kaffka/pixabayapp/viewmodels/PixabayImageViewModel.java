@@ -1,8 +1,8 @@
 package com.kaffka.pixabayapp.viewmodels;
 
 import android.content.Intent;
-import android.databinding.BaseObservable;
-import android.databinding.BindingAdapter;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.BindingAdapter;
 import android.view.View;
 import android.widget.ImageView;
 

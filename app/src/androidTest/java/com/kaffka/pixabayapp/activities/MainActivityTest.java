@@ -1,9 +1,15 @@
 package com.kaffka.pixabayapp.activities;
 
-import android.support.test.espresso.ViewInteraction;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
-import android.test.suitebuilder.annotation.LargeTest;
+//import android.support.test.espresso.ViewInteraction;
+//import android.support.test.rule.ActivityTestRule;
+//import android.support.test.runner.AndroidJUnit4;
+//import android.test.suitebuilder.annotation.LargeTest;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -17,13 +23,19 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
+//import static android.support.test.espresso.Espresso.onView;
+//import static android.support.test.espresso.action.ViewActions.click;
+//import static android.support.test.espresso.assertion.ViewAssertions.matches;
+//import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
+//import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+//import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.Matchers.allOf;
+
+import androidx.test.espresso.Espresso;
+import androidx.test.espresso.ViewInteraction;
+import androidx.test.filters.LargeTest;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.runner.AndroidJUnit4;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -35,31 +47,31 @@ public class MainActivityTest {
     @Test
     public void mainActivityTest() throws InterruptedException {
 
-        ViewInteraction recyclerView = onView(
+        ViewInteraction recyclerView = Espresso.onView(
                 allOf(withId(R.id.activity_main_list), isDisplayed()));
         recyclerView.perform(actionOnItemAtPosition(0, click()));
 
-        ViewInteraction imageView = onView(
+        ViewInteraction imageView = Espresso.onView(
                 allOf(withId(R.id.activity_detail_image),
                         isDisplayed()));
         imageView.check(matches(isDisplayed()));
 
-        ViewInteraction textView = onView(
+        ViewInteraction textView = Espresso.onView(
                 allOf(withId(R.id.activity_detail_user_name),
                         isDisplayed()));
         textView.check(matches(isDisplayed()));
 
-        ViewInteraction textView2 = onView(
+        ViewInteraction textView2 = Espresso.onView(
                 allOf(withId(R.id.activity_detail_tags),
                         isDisplayed()));
         textView2.check(matches(isDisplayed()));
 
-        ViewInteraction textView3 = onView(
+        ViewInteraction textView3 = Espresso.onView(
                 allOf(withId(R.id.activity_detail_likes),
                         isDisplayed()));
         textView3.check(matches(isDisplayed()));
 
-        ViewInteraction textView4 = onView(
+        ViewInteraction textView4 = Espresso.onView(
                 allOf(withId(R.id.activity_detail_favorites),
                         isDisplayed()));
         textView4.check(matches(isDisplayed()));

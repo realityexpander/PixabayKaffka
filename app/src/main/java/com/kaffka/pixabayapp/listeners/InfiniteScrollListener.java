@@ -1,11 +1,14 @@
 package com.kaffka.pixabayapp.listeners;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 /**
  * Created by kaffka on 4/14/2017.
  */
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+//import android.support.v7.widget.LinearLayoutManager;
+//import android.support.v7.widget.RecyclerView;
 
 public abstract class InfiniteScrollListener extends RecyclerView.OnScrollListener {
 
