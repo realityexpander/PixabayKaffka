@@ -37,7 +37,8 @@ public abstract class InfiniteScrollListener extends RecyclerView.OnScrollListen
 
         int visibleThreshold = 5;
         if (!loading && (totalItemCount - visibleItemCount)
-                <= (firstVisibleItem + visibleThreshold)) {
+                <= (firstVisibleItem + visibleThreshold)
+        ) {
             current_page++;
             onLoadMore(current_page);
             loading = true;

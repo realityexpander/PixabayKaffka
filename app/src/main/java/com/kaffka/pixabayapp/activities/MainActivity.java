@@ -111,8 +111,10 @@ public class MainActivity extends AppCompatActivity {
         PixabayService.createPixabayService().getImageResults(getString(R.string.PIXABAY_API_KEY), query, page, 20).enqueue(new Callback<PixabayImageList>() {
             @Override
             public void onResponse(Call<PixabayImageList> call, Response<PixabayImageList> response) {
-                if (response.isSuccessful()) addImagesToList(response.body());
-                else progressBar.setVisibility(View.GONE);
+                if (response.isSuccessful())
+                    addImagesToList(response.body());
+                else
+                    progressBar.setVisibility(View.GONE);
             }
 
             @Override
@@ -125,10 +127,14 @@ public class MainActivity extends AppCompatActivity {
     private void addImagesToList(PixabayImageList response) {
         progressBar.setVisibility(View.GONE);
         int position = pixabayImageList.size();
+
         pixabayImageList.addAll(response.getHits());
         pixabayImageListAdapter.notifyItemRangeInserted(position, position + 20);
-        if (pixabayImageList.isEmpty()) noResults.setVisibility(View.VISIBLE);
-        else noResults.setVisibility(View.GONE);
+
+        if (pixabayImageList.isEmpty())
+            noResults.setVisibility(View.VISIBLE);
+        else
+            noResults.setVisibility(View.GONE);
     }
 
     @Override
